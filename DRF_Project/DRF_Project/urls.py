@@ -19,5 +19,10 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('students/',include('Student_app.urls'))
+    #web application endpoint
+    path('students/',include('Student_app.urls')),
+
+    #Api endpoint
+    path('api/v1/',include('api.urls'))
+
 ]
