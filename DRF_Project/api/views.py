@@ -20,7 +20,7 @@ def studentdoc(request):
             serializer.save()
             return Response(serializer.data,status=status.HTTP_201_CREATED)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-@api_view(['GET'])
+@api_view(['GET','PUT'])
 def studentdetails(request,pk):
     try:
         student=Student.objects.get(pk=pk) #here get method ask for single value
@@ -29,3 +29,11 @@ def studentdetails(request,pk):
     if(request.method== 'GET'):
          serializer=StudentSerializer(student)
          return Response(serializer.data,status=status.HTTP_200_OK)
+    #for updating data
+    elif request.method == 'PUT':
+        serializer=StudentSerializer(student,data=request.data) #data=request.data is used to accept value,to be more specific we use student to know about the specific id
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data,status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.error, status=status.HTTP_400_BAD_REQUEST)
