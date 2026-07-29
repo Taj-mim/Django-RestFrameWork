@@ -20,7 +20,7 @@ def studentdoc(request):
             serializer.save()
             return Response(serializer.data,status=status.HTTP_201_CREATED)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-@api_view(['GET','PUT'])
+@api_view(['GET','PUT','DELETE'])
 def studentdetails(request,pk):
     try:
         student=Student.objects.get(pk=pk) #here get method ask for single value
@@ -37,3 +37,7 @@ def studentdetails(request,pk):
             return Response(serializer.data,status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.error, status=status.HTTP_400_BAD_REQUEST)
+    #deleting data
+    elif request.method == 'DELETE':
+        student.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
