@@ -7,7 +7,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 # Create your views here.
 @api_view(['GET','POST'])
-def studentdoc(request):
+def studentdoc(request):  #function based views
     if request.method == 'GET':
         #get all the student details
         details=Student.objects.all()
