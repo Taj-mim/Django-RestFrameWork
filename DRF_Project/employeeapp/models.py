@@ -6,5 +6,5 @@ class employee(models.Model):
     emp_name=models.CharField(max_length=255)
     emp_dept=models.CharField(max_length=255)
     emp_designation=models.CharField(max_length=255)
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.emp_name
