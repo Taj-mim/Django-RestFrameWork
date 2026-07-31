@@ -41,6 +41,7 @@ INSTALLED_APPS = [
      'Student_app',
      'api',
      'employeeapp',
+     'teacherapp'
 ]
 
 MIDDLEWARE = [
