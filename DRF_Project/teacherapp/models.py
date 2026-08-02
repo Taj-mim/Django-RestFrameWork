@@ -7,5 +7,5 @@ class teacher(models.Model):
     teacher_dept=models.CharField(max_length=255)
     teacher_designation=models.CharField(max_length=255)
     def __str__(self):
-        return self.emp_name
+        return self.teacher_name
 
