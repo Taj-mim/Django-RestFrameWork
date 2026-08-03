@@ -43,6 +43,7 @@ INSTALLED_APPS = [
      'employeeapp',
      'teacherapp',
      'Blog_APP',
+     'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -126,6 +127,6 @@ REST_FRAMEWORK = {
    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination', # PagenumberPagination class is used to paginate the results of Generics and every view. It divides the results into pages, allowing clients to request specific pages of data.
    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination', # CustomPagination class is used to paginate the results of Generics and every view. It divides the results into pages, allowing clients to request specific pages of data.
    'PAGE_SIZE': 2, # The number of items to return per page. In this case, it is set to 2, meaning that each page will contain 2 items.
-
-
+#default filter:Used for filtering specific data from the database.
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }

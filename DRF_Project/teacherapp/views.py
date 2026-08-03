@@ -85,6 +85,11 @@ class teacherViewSet(viewsets.ViewSet):
             return Response({'error': 'Teacher not found'}, status=404) """
 #modelViewSet is used to provide the functionality of the class based views to the viewsets
 from rest_framework import viewsets
+from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
+from .filters import teacherFilter
 class teacherViewSet(viewsets.ModelViewSet):
     queryset=teacher.objects.all()
     serializer_class=teacherserializers
+    #filter_backends=[DjangoFilterBackend] this used for default filter backend
+    filterset_class=teacherFilter
