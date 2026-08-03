@@ -121,3 +121,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+# Global Pagination settings for DRF
+REST_FRAMEWORK = {
+   # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination', # PagenumberPagination class is used to paginate the results of Generics and every view. It divides the results into pages, allowing clients to request specific pages of data.
+   'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination', # CustomPagination class is used to paginate the results of Generics and every view. It divides the results into pages, allowing clients to request specific pages of data.
+   'PAGE_SIZE': 2, # The number of items to return per page. In this case, it is set to 2, meaning that each page will contain 2 items.
+
+
+}
