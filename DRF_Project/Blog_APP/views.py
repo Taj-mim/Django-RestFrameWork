@@ -3,7 +3,7 @@ from django.views import generic
 from rest_framework import generics
 from .models import Blog, Comment
 from .serializers import BlogSerializer, CommentSerializer
-from .paginations import CustomTeacherPagination 
+from .paginations import CustomTeacherPagination
 
 # Create your views here.
 class BlogDetails(generics.ListCreateAPIView):

@@ -87,9 +87,15 @@ class teacherViewSet(viewsets.ViewSet):
 from rest_framework import viewsets
 from rest_framework import filters
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter, OrderingFilter
 from .filters import teacherFilter
 class teacherViewSet(viewsets.ModelViewSet):
     queryset=teacher.objects.all()
     serializer_class=teacherserializers
     #filter_backends=[DjangoFilterBackend] this used for default filter backend
     filterset_class=teacherFilter
+    filter_backends=[OrderingFilter,SearchFilter,DjangoFilterBackend    ] #this used for search filter backend
+  #  fileterset_fields=['teacher_dept'] #this used for filter backend specific filed
+    search_fields=['teacher_name'] #search backend specific filed
+
+    ordering_fields=['id'] #order id ascending and descending order
