@@ -27,6 +27,8 @@ urlpatterns = [
     #for employee 
     path('api/v1/',include('employeeapp.urls')),
     #for teacher api endpoint
-    path('api/v1/',include('teacherapp.urls'))
+    path('api/v1/',include('teacherapp.urls')),
+    #for blog api endpoint
+    path('api/v2/',include('Blog_APP.urls'))   
 
 ]
