@@ -33,7 +33,9 @@ urlpatterns = [
     #for blog api endpoint
     path('api/v2/',include('Blog_APP.urls'))   ,
     #for upload api endpoint
-    path('api/v1/',include('upload.urls'))
+    path('api/v1/',include('upload.urls')),
+    #for authentication api endpoint
+    path('api/v1/',include('accounts.urls'))
 
 ]
 if settings.DEBUG:

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
      'Blog_APP',
      'django_filters',
      'upload',
+     'accounts',
 ]
 
 MIDDLEWARE = [
@@ -130,6 +131,12 @@ REST_FRAMEWORK = {
    'PAGE_SIZE': 2, # The number of items to return per page. In this case, it is set to 2, meaning that each page will contain 2 items.
 #default filter:Used for filtering specific data from the database.
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DeFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
 }
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
