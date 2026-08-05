@@ -44,6 +44,7 @@ INSTALLED_APPS = [
      'teacherapp',
      'Blog_APP',
      'django_filters',
+     'upload',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,5 @@ REST_FRAMEWORK = {
 #default filter:Used for filtering specific data from the database.
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"

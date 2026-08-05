@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +31,10 @@ urlpatterns = [
     #for teacher api endpoint
     path('api/v1/',include('teacherapp.urls')),
     #for blog api endpoint
-    path('api/v2/',include('Blog_APP.urls'))   
+    path('api/v2/',include('Blog_APP.urls'))   ,
+    #for upload api endpoint
+    path('api/v1/',include('upload.urls'))
 
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
