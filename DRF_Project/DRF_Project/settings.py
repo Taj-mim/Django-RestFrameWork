@@ -124,6 +124,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+from datetime import timedelta
+SIMPLE_JWT= {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+}
 # Global Pagination settings for DRF
 REST_FRAMEWORK = {
    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination', # PagenumberPagination class is used to paginate the results of Generics and every view. It divides the results into pages, allowing clients to request specific pages of data.
@@ -131,12 +137,16 @@ REST_FRAMEWORK = {
    'PAGE_SIZE': 2, # The number of items to return per page. In this case, it is set to 2, meaning that each page will contain 2 items.
 #default filter:Used for filtering specific data from the database.
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
-    ],
-    'DeFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ],
+   #'DEFAULT_AUTHENTICATION_CLASSES': [
+    #    'rest_framework.authentication.SessionAuthentication',
+    #],
+    #'DeFAULT_PERMISSION_CLASSES': [
+    #    'rest_framework.permissions.AllowAny',
+    #]
+    'DEFAULT_AUTHENTICAITON_CLASSES':[
+        'rest_framework.authentication.JWTAuthentication',
+    ]
+
 }
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"

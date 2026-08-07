@@ -98,7 +98,7 @@ class RegisterView(APIView):
 
         return render(
             request,
-            "authentication/register.html",
+            "accounts/register.html",
             {
                 "form": form
             }
@@ -112,7 +112,7 @@ class LoginView(APIView):
 
         return render(
             request,
-            "authentication/login.html",
+            "accounts/login.html",
             {
                 "form": form
             }
@@ -140,7 +140,7 @@ class LoginView(APIView):
 
         return render(
             request,
-            "authentication/login.html",
+            "accounts/login.html",
             {
                 "form": form
             }
@@ -158,7 +158,7 @@ class ProfileView(APIView):
 
         return render(
             request,
-            "authentication/profile.html"
+            "accounts/login.html",
         )
 
 #logout view
